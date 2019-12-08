@@ -51,6 +51,7 @@ export default class ExampleTwo extends Component {
 //    let tableData = { ...this.state.tableData ,  ...[form.persona,"2","3","4"] }
 
 
+
     this.setState( {
 		tableData:[],
 		personas,
