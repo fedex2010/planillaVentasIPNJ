@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Button, Alert,Picker, Text ,Modal, TouchableHighlight,TextInput } from 'react-native';
 import { CheckBox, Input } from 'react-native-elements'
 import { Table, TableWrapper, Row, Rows, Col } from 'react-native-table-component';
+
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 export default class ExampleTwo extends Component {
@@ -11,12 +12,7 @@ export default class ExampleTwo extends Component {
       modalVisible: false,
       personas:[],
       tableHead: ['Persona', 'Pedido', 'Pago', 'Debe'],
-      tableData: [
-        ["Pedro",'1', '2', '3'],
-        ["Marta",'a', 'b', 'c'],
-        ["Alejandro",'1', '2', '3'],
-        ["Hernan",'a', 'b', 'c']
-      ],
+      tableData: [],
       form:{
 	persona:"",
 	docenas:1,
@@ -42,18 +38,27 @@ export default class ExampleTwo extends Component {
     this.setState({form:formAux})
   }
 
+  calcularMonto(){
+     return (280 * this.state.form.docenas).toString()
+  }
 
+  getDeuda(){
+  	return (this.state.form.pago) ? "" :  this.calcularMonto()
+  }
+  getPago(){
+  	return (this.state.form.pago) ? this.calcularMonto() :  ""
+  }
 
   guardarPedido(){
     const {form} = this.state;
 
     let personas = { ...this.state.personas ,  ...[form.persona] }
-//    let tableData = { ...this.state.tableData ,  ...[form.persona,"2","3","4"] }
+    let tableData = this.state.tableData 
 
-
+    tableData.push( [form.persona, form.docenas , this.getPago() , this.getDeuda() ] )
 
     this.setState( {
-		tableData:[],
+		tableData,
 		personas,
 	        modalVisible: false,
 		form:{
@@ -130,8 +135,7 @@ export default class ExampleTwo extends Component {
               <Text>{cobrarTexto}</Text>
  	      <TextInput
 		style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-		onChangeText={ text => this.onChangeText("monto",text)}
-		value={this.state.form.monto}
+		value={this.calcularMonto()}
 	      />
 
               <Button
