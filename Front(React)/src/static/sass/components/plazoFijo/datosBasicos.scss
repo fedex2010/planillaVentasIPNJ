@@ -1,0 +1,57 @@
+//datosBasicos.scss
+
+$sm: 960px;
+$xs: 600px;
+
+.datos-basicos{
+    @media screen and (max-width: $mobile) {
+         bottom: 45%;
+    }
+    .header-image{
+        .header-container{
+            padding-top: 34px;
+            max-width: 70%;
+            margin: auto;
+            @media screen and (max-width: $xs) {
+                max-width: 80%;
+            }
+            .datos-basicos-title{
+                    font-size: 25px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    color: #797979;
+                }
+            }
+        }
+    
+    .datos-basicos-container{
+        max-width: 70%;
+        margin: auto;
+        margin-bottom: 80px;
+        @media screen and (max-width: $xs) {
+            max-width: 80%;
+        }
+        .datos-basicos-form-control{
+            width: 100%;
+            margin-bottom: 25px;
+            .data-datos-basicos{
+                width: 100%;
+                margin-top: 0px; 
+                margin-bottom: 0px; 
+            }
+        }
+        .input-container{
+            margin-bottom: 25px;
+        }
+        .btn{
+            border-radius: 30px;
+            padding: 10px 30px;
+             @media screen and (max-width: $xs) {
+                width: 100%;
+            }
+        }
+    } 
+}

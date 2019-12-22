@@ -1,0 +1,35 @@
+//datosBasicos.scss
+
+$sm: 960px;
+$xs: 600px;
+
+.ip, .domicilio{
+    @media screen and (max-width: $mobile) {
+         bottom: 45%;
+    }
+    .ip-container, .domicilio-container{
+         .ip-title{
+                margin-top: 15px;
+                margin-bottom: 30px;
+                border-left: solid 3px #f47321;
+                padding-left: 15px;
+                font-size: 15px;
+                font-weight: 500;
+                color: #3e3e3e;
+        }
+        .ip-form-control,.domicilio-form-control {
+            width: 100%;
+            margin-bottom: 25px;
+        }
+        .input-container{
+            margin-bottom: 25px;
+        }
+        button{
+            border-radius: 30px;
+            padding: 10px 30px;
+             @media screen and (max-width: $xs) {
+                width: 100%;
+            }
+        }
+    } 
+}

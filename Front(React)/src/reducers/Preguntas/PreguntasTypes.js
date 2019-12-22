@@ -1,0 +1,5 @@
+export const SET_PREGUNTAS = "SET_PREGUNTAS";
+export const SET_RESPUESTA = "SET_RESPUESTA";
+export const GUARDAR_DICTAMEN = "GUARDAR_DICTAMEN";
+
+

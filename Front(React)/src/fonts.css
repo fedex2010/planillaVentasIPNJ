@@ -1,0 +1,10 @@
+@font-face{
+  font-family: "DIN-Condensed-Bold";
+  src: url('./static/fonts/DINCondensedBold.woff2') format('woff2')
+}
+
+@font-face {
+  font-family: 'RobotoBH';
+  src: url(./static/fonts/Roboto-Regular.woff2) format('woff2')
+}
+

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button, Alert,Picker, Text ,Modal, TouchableHighlight,TextInput } from 'react-native';
+import { StyleSheet, View, Button, Alert,Picker, Text ,Modal, TouchableOpacity,TextInput, Image } from 'react-native';
 import { CheckBox, Input } from 'react-native-elements'
 import { Table, TableWrapper, Row, Rows, Col } from 'react-native-table-component';
 
@@ -9,7 +9,7 @@ export default class ExampleTwo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalVisible: false,
+      modalVisible: true,
       personas:[],
       tableHead: ['Persona', 'Pedido', 'Pago', 'Debe'],
       tableData: [],
@@ -84,15 +84,11 @@ export default class ExampleTwo extends Component {
           <View style={{marginTop: 22}}>
             <View>
 		
-	      <Button
-		style={{ marginTop: 10,marginBottom: 10}}
-		title="Detalle del pedido"
-		onPress={() => this.agregarPedido()}
-	      />
+	      <Text>Detalle del pedido</Text>
 
  	      <Input
 		placeholder={"Ingrese en nombre de la persona"}
-		containerStyle={{ marginTop: 40}}
+		containerStyle={{ marginTop: 20,marginBottom: 20}}
 		onChangeText={ text => this.onChangeText("persona",text)}
 		value={this.state.form.persona}
 	      />
@@ -112,7 +108,7 @@ export default class ExampleTwo extends Component {
 		       <Picker.Item label = "2" value = "2" />
 		       <Picker.Item label = "3" value = "3" />
               </Picker>
-	      <Text>Cantidad</Text>
+	      <Text>Unidad</Text>
 	      <Picker selectedValue = {this.state.form.cantidad} onValueChange = { count => this.onChangeText("cantidad",count)}>
 		       <Picker.Item label = "1" value = "1" />
 		       <Picker.Item label = "2" value = "2" />
@@ -138,19 +134,23 @@ export default class ExampleTwo extends Component {
 		value={this.calcularMonto()}
 	      />
 
-              <Button
+            <View style={{         flexDirection: 'row' }}>
+		<Button
+		    title="Cancelar"
+		    onPress={() => this.setModalVisible(false)}
+		/>
+		<Button
 		    title="Guardar Pedido"
 		    onPress={() => this.guardarPedido()}
-	      />
+		/>
+            </View>
+              
 
             </View>
           </View>
         </Modal>
 
-	 <Button
-            title="Agregar Pedido"
-            onPress={() => this.setModalVisible(!this.state.modalVisible)}
-          />
+        <Text>Listado de Pedidos</Text>
 
         <Table borderStyle={{borderWidth: 1}}>
           <Row data={state.tableHead} flexArr={[1, 2, 1, 1]} style={styles.head} textStyle={styles.text}/>
@@ -159,6 +159,21 @@ export default class ExampleTwo extends Component {
             <Rows data={state.tableData} flexArr={[2, 1, 1]} style={styles.row} textStyle={styles.text}/>
           </TableWrapper>
         </Table>
+
+        <Text>	Damaris es mi hija hermosa</Text>
+
+
+
+	<TouchableOpacity
+          activeOpacity={0.7}
+          onPress={() => this.setModalVisible(!this.state.modalVisible)}
+          style={styles.TouchableOpacityStyle}>
+		  <Image
+		     source={ require('./assets/bluePlusButton.jpeg')}
+		     style={styles.FloatingButtonStyle}
+		  />
+        </TouchableOpacity>
+
       </View>
     )
   }
@@ -170,5 +185,24 @@ const styles = StyleSheet.create({
   wrapper: { flexDirection: 'row' },
   title: { flex: 1, backgroundColor: '#f6f8fa' },
   row: {  height: 28  },
-  text: { textAlign: 'center' }
+  text: { textAlign: 'center' },
+  footerButtonBox:{
+	flex: 1,
+  },
+  TouchableOpacityStyle: {
+    position: 'absolute',
+    width: 50,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 30,
+    bottom: 30,
+  },
+ 
+  FloatingButtonStyle: {
+    resizeMode: 'contain',
+    width: 50,
+    height: 50,
+    //backgroundColor:'black'
+  }
 });

@@ -1,0 +1,2 @@
+export const SET_BIFURCACION = "SET_BIFURCACION";
+

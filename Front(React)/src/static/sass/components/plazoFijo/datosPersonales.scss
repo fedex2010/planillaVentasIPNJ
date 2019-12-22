@@ -1,0 +1,57 @@
+//datosBasicos.scss
+
+$sm: 960px;
+$xs: 600px;
+
+.datos-personales{
+    @media screen and (max-width: $mobile) {
+         bottom: 45%;
+    }
+
+    .header-image, .footer{
+        .header-container, .footer-container{
+            padding-top: 34px;
+            max-width: 70%;
+            margin: auto;
+            @media screen and (max-width: $xs) {
+                max-width: 80%;
+            }
+            font-size: 12px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.42;
+            letter-spacing: normal;
+            color: #7e7e7e;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+    }
+    .datos-personales-container{
+        max-width: 70%;
+        margin: auto;
+        margin-bottom: 20px;
+        margin-top: 25px;
+        @media screen and (max-width: $xs) {
+            max-width: 80%;
+        }
+        .stepper{
+            padding-left: 0px;
+            padding-right: 0px;
+            .caption{
+                width: 80%;
+            }
+        }
+        .button-container{
+            text-align: right;
+            button{
+                border-radius: 30px;
+                padding: 10px 30px;
+                @media screen and (max-width: $xs) {
+                    width: 100%;
+                    margin-top: 10px
+                }
+            }
+        }  
+    } 
+}

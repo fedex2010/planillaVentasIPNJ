@@ -1,0 +1,66 @@
+//buhobank.scss
+@import '../../../node_modules/font-awesome/css/font-awesome.min.css';
+@import "~/node_modules/material-design-icons/iconfont/material-icons.css";
+
+//variables
+$mobile : 60px; 
+$color-hipotecario : #f47321;
+$color-icono : #b2b2b2;
+$color-texto: #797979;
+$tamaño-titulo: 40px; 
+$tamaño-subtitulo: 20px;
+
+//global
+@import "components/load";
+@import "components/button";
+@import "components/footer";
+
+//component
+@import "components/onboarding/onboarding";
+@import "components/plazoFijo/landingPage";
+@import "components/plazoFijo/datosBasicos";
+@import "components/plazoFijo/datosPersonales";
+@import "components/plazoFijo/informacionPersonal";
+@import "components/plazoFijo/confirmacion";
+@import "components/plazoFijo/congrats";
+
+//html
+html {
+    font-family: "Roboto", sans-serif;
+}
+
+//body
+body{
+	background-color:white !important;
+}
+
+//input
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+	background-color: rgb(194, 65, 65) !important;
+}
+
+
+//Color Selection
+::selection {
+	color: white;
+	background: $color-hipotecario;
+}
+
+::-moz-selection {
+	color: white;
+	background: $color-hipotecario;
+}
+
+/* Change the white to any color ;) */
+.card-simulador{
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover, 
+	input:-webkit-autofill:focus, 
+	input:-webkit-autofill:active  {
+		-webkit-box-shadow: 0 0 0 30px #e4e4e4 inset !important;
+	}
+} 
